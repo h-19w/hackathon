@@ -1,0 +1,24 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+~$*
+*.tmp
+
+# Large / unrelated binaries (not part of Wake Up web game)
+UnityHubSetup-x64.exe
+*.zip
+The Lighthouse Keeper.docx
+lighthouse-assets/
+_downloads/
+
+# Optional large raw audio dumps (game uses Web Audio; keep curated assets only if needed)
+audio_hero_*.mp3
+audio_hero_*.wav
+mixkit-horror-ambience-2482.wav
+zapsplat_*
+
+# Node (if ever added)
+node_modules/
+.env
+.env.*

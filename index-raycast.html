@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WKU: Wake Up — 3D Horror Survival</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="start-screen" class="screen active">
+      <div class="start-bg"></div>
+      <div class="start-content">
+        <p class="subtitle">Wenzhou-Kean University</p>
+        <h1>WAKE UP</h1>
+        <p class="tagline" data-i18n="tagline">A horror survival experience on campus</p>
+
+        <div class="form-group">
+          <label for="player-name" data-i18n="playerName">Player Name</label>
+          <input type="text" id="player-name" maxlength="16" placeholder="Enter your name" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="language">Language</label>
+          <div class="lang-toggle">
+            <button type="button" class="lang-btn active" data-lang="en">English</button>
+            <button type="button" class="lang-btn" data-lang="zh">中文</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="volume-slider" data-i18n="volume">Volume</label>
+          <input type="range" id="volume-slider" min="0" max="100" value="75">
+          <span id="volume-value">75%</span>
+        </div>
+
+        <button type="button" id="play-btn" class="play-btn" data-i18n="play">Play</button>
+        <p class="hint" data-i18n="hint">WASD move · Mouse look · E = glowing objects · F/Space = use item</p>
+        <p class="hint sub-hint">3D First-Person · Run start-server.ps1 → localhost:8080</p>
+      </div>
+    </div>
+
+    <div id="game-ui" class="hidden">
+      <canvas id="game-canvas"></canvas>
+      <div id="hud">
+        <div id="floor-badge" title="Ground Floor">G</div>
+        <div class="hud-left">
+          <span data-i18n="health">Health</span>
+          <div class="bar-track"><div id="health-bar" class="bar-fill health"></div></div>
+        </div>
+        <div class="hud-center">
+          <div id="inventory"></div>
+          <div id="item-hint"></div>
+        </div>
+        <div class="hud-right">
+          <span data-i18n="battery">Flashlight</span>
+          <div class="bar-track"><div id="battery-bar" class="bar-fill battery"></div></div>
+        </div>
+      </div>
+      <div id="dialog-box" class="hidden">
+        <p id="dialog-speaker"></p>
+        <p id="dialog-text"></p>
+        <span class="dialog-hint" data-i18n="continue">Press E to continue</span>
+      </div>
+      <div id="objective" class="hidden"></div>
+      <div id="notification" class="hidden"></div>
+      <canvas id="minimap" width="180" height="130"></canvas>
+      <div id="vignette"></div>
+      <div id="fade-overlay"></div>
+      <div id="jumpscare-flash"></div>
+      <div id="jumpscare-face" class="hidden">
+        <div class="jface-eyes"></div>
+        <div class="jface-mouth"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/sprites.js"></script>
+  <script src="js/raycast3d.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/jumpscares.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

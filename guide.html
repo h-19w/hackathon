@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Companion guide to the horror game Wake Up: controls, the battery economy, the task list that opens the stairwell, item locations, the light-then-hit rule, and a route map of Building C.">
+<meta name="theme-color" content="#07070a">
+<meta property="og:type" content="website"><meta property="og:title" content="Wake Up Field Guide">
+<meta property="og:description" content="Controls, tasks, items, the one combat rule, and a route map of Building C.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%93%93</text></svg>">
+<title>Wake Up Field Guide</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&family=Special+Elite&display=swap">
+<style>
+:root{color-scheme:dark;--void:#07070a;--panel:#101016;--panel2:#16161d;--bone:#ded8cd;--dust:#918a7c;--faint:#5d5850;
+  --blood:#c8202a;--blood-dim:#7d1218;--sodium:#eda94a;--sick:#7fae91;--hair:rgba(222,216,205,.13);--hair2:rgba(222,216,205,.07);
+  --f-disp:"Anton",Impact,sans-serif;--f-ui:"Oswald",system-ui,sans-serif;--f-body:"Spectral",Georgia,serif;--f-type:"Special Elite",Courier New,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--bone);font-family:var(--f-body);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+a{color:var(--sodium);text-decoration-color:rgba(237,169,74,.4);text-underline-offset:3px}a:hover{text-decoration-color:var(--sodium)}
+:focus-visible{outline:2px solid var(--sodium);outline-offset:3px}
+.shell{max-width:1180px;margin:0 auto;padding:0 26px 96px;display:grid;grid-template-columns:1fr;gap:0}
+@media (min-width:1040px){.shell{grid-template-columns:212px minmax(0,1fr);gap:56px;padding-right:40px}}
+.mast{grid-column:1/-1;padding:64px 0 40px;border-bottom:1px solid var(--hair)}
+.eyebrow{font-family:var(--f-ui);font-size:10.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--dust);margin:0 0 20px}.eyebrow b{color:var(--sick);font-weight:400}
+.wordmark{font-family:var(--f-disp);font-size:clamp(52px,10vw,104px);line-height:.86;margin:0;color:var(--blood);text-transform:uppercase;letter-spacing:.01em;text-wrap:balance;text-shadow:0 2px 0 #4d0a0e}
+.wordmark span{display:block;font-family:var(--f-ui);font-weight:300;font-size:clamp(15px,2.6vw,22px);letter-spacing:.34em;color:var(--bone);margin-top:16px;text-shadow:none}
+.standfirst{font-size:19px;line-height:1.7;color:var(--bone);max-width:60ch;margin:26px 0 0}.standfirst em{font-style:italic;color:var(--dust)}
+.playbar{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:30px}
+.playbtn{display:inline-block;font-family:var(--f-ui);font-size:14px;letter-spacing:.28em;text-transform:uppercase;padding:13px 30px;background:linear-gradient(180deg,#8f1219,#560a0e);border:1px solid #b4212a;color:#f3e9e6;text-decoration:none;transition:filter .18s}
+.playbtn:hover{filter:brightness(1.35);text-decoration:none}
+.playnote{font-family:var(--f-ui);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.rail{display:none}
+@media (min-width:1040px){.rail{display:block;position:sticky;top:0;align-self:start;padding:44px 0 40px}
+  .rail p{font-family:var(--f-ui);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--faint);margin:0 0 14px}
+  .rail a{display:block;font-family:var(--f-ui);font-size:13px;letter-spacing:.06em;color:var(--dust);text-decoration:none;padding:5px 0 5px 13px;border-left:2px solid var(--hair2);transition:color .16s,border-color .16s}
+  .rail a:hover{color:var(--bone);border-left-color:var(--blood)}}
+.doc{min-width:0;padding-top:44px}section{padding:0 0 8px;margin-bottom:52px;scroll-margin-top:24px}
+h2{font-family:var(--f-ui);font-weight:500;font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--sodium);margin:0 0 6px}
+h2+.lede{font-family:var(--f-disp);font-size:clamp(28px,4.4vw,40px);line-height:1.06;color:var(--bone);margin:0 0 22px;text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+h3{font-family:var(--f-ui);font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--bone);margin:34px 0 10px}
+p{margin:0 0 17px;max-width:66ch}strong{color:#fff;font-weight:600}.hr{height:1px;background:var(--hair);border:0;margin:0 0 44px}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--hair);background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:440px;font-family:var(--f-ui);font-size:14px}
+thead th{font-weight:500;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--dust);text-align:left;padding:12px 16px;border-bottom:1px solid var(--hair);background:var(--panel2);white-space:nowrap}
+tbody td{padding:11px 16px;border-bottom:1px solid var(--hair2);color:var(--bone);vertical-align:top;line-height:1.5}tbody tr:last-child td{border-bottom:0}
+td.k{white-space:nowrap;color:var(--dust)}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.key{display:inline-block;font-family:var(--f-ui);font-size:11.5px;letter-spacing:.08em;background:#1e1e26;border:1px solid #31313c;color:var(--bone);padding:2px 8px;margin-right:5px;white-space:nowrap}
+.lit{color:var(--sodium)}.bad{color:#e8555c}.ok{color:var(--sick)}
+.rule{border:1px solid rgba(237,169,74,.34);background:linear-gradient(180deg,rgba(237,169,74,.075),rgba(237,169,74,.015));padding:28px 30px;margin:0 0 26px}
+.rule .tag{font-family:var(--f-ui);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--sodium);margin:0 0 12px}
+.rule .big{font-family:var(--f-disp);font-size:clamp(24px,3.6vw,34px);line-height:1.12;color:#fff;margin:0 0 14px;text-transform:uppercase;text-wrap:balance}
+.rule p{margin:0;color:var(--bone);max-width:62ch}.rule p+p{margin-top:12px}
+.log{font-family:var(--f-type);font-size:14.5px;line-height:1.75;color:var(--sick);border-left:2px solid var(--sick);background:rgba(10,18,14,.5);padding:16px 20px;margin:0 0 22px;max-width:62ch}
+.log b{display:block;font-family:var(--f-ui);font-size:9.5px;letter-spacing:.28em;color:var(--dust);text-transform:uppercase;margin-bottom:6px;font-weight:400}
+figure{margin:0 0 24px;border:1px solid var(--hair);background:var(--panel);padding:22px 22px 16px}figure svg{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-family:var(--f-ui);font-size:11.5px;line-height:1.6;letter-spacing:.04em;color:var(--dust);margin-top:16px;padding-top:14px;border-top:1px solid var(--hair2)}figcaption b{color:var(--bone);font-weight:500}
+.fig-title{font-family:var(--f-ui);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--bone);margin:0 0 18px}
+ol.steps{list-style:none;counter-reset:s;margin:0;padding:0}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 18px 52px;margin:0;border-left:1px solid var(--hair);max-width:64ch}ol.steps li:last-child{border-left-color:transparent;padding-bottom:0}
+ol.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:-15px;top:-2px;font-family:var(--f-ui);font-size:11px;letter-spacing:.1em;color:var(--sodium);background:var(--void);border:1px solid rgba(237,169,74,.4);width:30px;height:24px;display:grid;place-items:center}
+ol.steps p{margin:0}
+.tasklist{display:grid;gap:2px;margin:0 0 22px}
+.tasklist div{display:flex;gap:14px;align-items:baseline;padding:12px 18px;background:var(--panel);font-family:var(--f-ui);font-size:14px;max-width:64ch}
+.tasklist div::before{content:"";width:9px;height:9px;border:1px solid var(--sodium);flex:none;position:relative;top:-1px}
+.tasklist div.opt::before{border-color:var(--faint)}.tasklist div.opt{color:var(--dust)}
+.tasklist span{color:var(--dust);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-left:auto;white-space:nowrap}
+ul.tips{list-style:none;margin:0;padding:0;display:grid;gap:2px}ul.tips li{padding:13px 18px;background:var(--panel);border-left:2px solid var(--blood-dim);max-width:64ch}ul.tips li strong{color:#fff}
+details.spoiler{border:1px solid var(--hair);background:var(--panel);margin:0 0 22px}
+details.spoiler>summary{font-family:var(--f-ui);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blood);padding:17px 22px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+details.spoiler>summary::-webkit-details-marker{display:none}details.spoiler>summary::after{content:"Reveal";font-size:10px;letter-spacing:.24em;color:var(--faint)}
+details.spoiler[open]>summary::after{content:"Hide"}details.spoiler>summary:hover{color:#e8555c}
+.spoiler-body{padding:4px 22px 22px;border-top:1px solid var(--hair2)}.spoiler-body p:last-child{margin-bottom:0}
+.foot{grid-column:1/-1;border-top:1px solid var(--hair);padding-top:26px;margin-top:20px;font-family:var(--f-ui);font-size:11.5px;letter-spacing:.12em;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+</style>
+<style>html{color-scheme:dark}html,body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<div class="shell">
+  <header class="mast">
+    <p class="eyebrow">Wenzhou&#8209;Kean University &nbsp;·&nbsp; Building C &nbsp;·&nbsp; <b>Lockdown 03:33</b></p>
+    <h1 class="wordmark">Wake Up<span>Field Guide</span></h1>
+    <p class="standfirst">Everything the building will not tell you: which four things open the stairwell, why your knife does nothing until you point a light at something, and how to make a shadow walk away from you.
+      <em>Read the last section only after you have finished it once.</em></p>
+    <div class="playbar"><a class="playbtn" href="index.html">Play the game</a>
+      <span class="playnote">Headphones recommended · Flashing lights &amp; loud sounds</span></div>
+  </header>
+
+  <nav class="rail" aria-label="Contents"><p>Contents</p>
+    <a href="#controls">Controls</a><a href="#bars">The three bars</a><a href="#tasks">Tasks</a><a href="#items">Items</a>
+    <a href="#rule">The one rule</a><a href="#harm">What hurts you</a><a href="#building">The building</a><a href="#boss">The boss</a>
+    <a href="#opening">The opening</a><a href="#tips">Tips</a><a href="#meaning">What it means</a></nav>
+
+  <main class="doc">
+
+    <section id="controls">
+      <h2>Controls</h2><p class="lede">Click once to catch the mouse</p>
+      <p>If the browser refuses to lock the pointer, <strong>click and drag</strong> to look around — the game switches over on its own and stays switched. Arrow keys turn the view no matter what.</p>
+      <div class="tw"><table><thead><tr><th>Action</th><th>Keyboard &amp; mouse</th><th>Controller</th></tr></thead><tbody>
+        <tr><td class="k">Move</td><td><span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span></td><td>Left stick</td></tr>
+        <tr><td class="k">Look</td><td>Mouse, or <span class="key">↑ ↓ ← →</span></td><td>Right stick</td></tr>
+        <tr><td class="k">Run</td><td><span class="key">Shift</span></td><td>L3 / LT</td></tr>
+        <tr><td class="k">Interact</td><td><span class="key">E</span></td><td>A</td></tr>
+        <tr><td class="k">Use / swing / throw</td><td>Left click, or <span class="key">Space</span></td><td>X / RT</td></tr>
+        <tr><td class="k">Item</td><td><span class="key">1</span> knife &nbsp;<span class="key">2</span> bottle &nbsp;<span class="key">3</span> mouse &nbsp;<span class="key">4</span> medkit</td><td>LB / RB</td></tr>
+        <tr><td class="k">Flashlight</td><td><span class="key">G</span></td><td>Y</td></tr>
+        <tr><td class="k">Journal</td><td><span class="key">Tab</span></td><td>B</td></tr>
+        <tr><td class="k">Pause</td><td><span class="key">Esc</span></td><td>Start</td></tr>
+      </tbody></table></div>
+      <p>Your left hand holds the phone — that is the light. Your right hand holds whatever is selected, and you will see it swing. The journal fills itself with every paper you read; check it when a message arrives from the unknown number.</p>
+    </section><hr class="hr">
+
+    <section id="bars">
+      <h2>The three bars</h2><p class="lede">Stand under a working light</p>
+      <p>Health does not regenerate on its own. Two things restore it: the single first-aid kit in the building, worth <strong>35</strong>, and <strong>standing still directly under a working ceiling light</strong>, which heals 4 a second. Working lights are rare and half the switches are dead, so a lit tube is a place worth remembering.</p>
+      <p><strong>Stamina</strong> burns 17 a second while running — about six seconds of sprint. It recovers at 11 a second standing still, only 5 while walking. Sprinting also makes noise, which matters more than the stamina does.</p>
+      <p><strong>Battery</strong> is the resource that governs the game. It drains faster while you move, faster on each floor up, and it <strong>stutters below 35%</strong> and all but dies below 10%. It also recharges under working lights, at 6 a second.</p>
+      <figure>
+        <p class="fig-title">Seconds of light from a full charge, while moving</p>
+        <svg viewBox="0 0 560 154" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Bar chart: a full battery gives 2 minutes 1 second of light while moving on the ground floor, 1 minute 43 seconds on the first floor, and 1 minute 29 seconds in the lab.">
+          <line x1="96" y1="12" x2="96" y2="118" stroke="#3a3a42" stroke-width="1"/>
+          <g font-family="Oswald, sans-serif" font-size="12" fill="#918a7c" text-anchor="end">
+            <text x="82" y="35">Ground</text><text x="82" y="71">First</text><text x="82" y="107">Lab</text></g>
+          <g fill="#eda94a">
+            <path d="M96 22 H432 A4 4 0 0 1 436 26 V34 A4 4 0 0 1 432 38 H96 Z"><title>Ground floor — 2 minutes 1 second</title></path>
+            <path d="M96 58 H381 A4 4 0 0 1 385 62 V70 A4 4 0 0 1 381 74 H96 Z"><title>First floor — 1 minute 43 seconds</title></path>
+            <path d="M96 94 H342 A4 4 0 0 1 346 98 V106 A4 4 0 0 1 342 110 H96 Z"><title>Neural Lab — 1 minute 29 seconds</title></path></g>
+          <g font-family="Oswald, sans-serif" font-size="13" fill="#ded8cd">
+            <text x="448" y="35">2m 01s</text><text x="397" y="71">1m 43s</text><text x="358" y="107">1m 29s</text></g>
+          <text x="96" y="140" font-family="Oswald, sans-serif" font-size="10.5" letter-spacing="2.4" fill="#5d5850">STANDING STILL LASTS ABOUT HALF AS LONG AGAIN</text>
+        </svg>
+        <figcaption><b>Until Luke's event, the phone runs at half power</b> — dimmer, but half the drain. The full beam arrives the moment the corridor opens, and every second after that is on this scale. Three spare batteries in the whole building, <span class="lit">+55</span> each.</figcaption>
+      </figure>
+    </section><hr class="hr">
+
+    <section id="tasks">
+      <h2>Tasks</h2><p class="lede">Four things open the F2 stairwell</p>
+      <p>The tracker in the top-right corner lists them. The stairwell door on F1 has a keycard reader that stays <span class="bad">red</span> until every required task is done — then it turns <span class="ok">green</span> and the door will open. Everything is enterable in any order once you are on the floor.</p>
+      <h3>Ground floor</h3>
+      <div class="tasklist">
+        <div>Check your phone <span>your desk</span></div>
+        <div>Read the note under it <span>your desk</span></div>
+        <div>Exit to the corridor <span>after Luke</span></div>
+      </div>
+      <h3>First floor</h3>
+      <div class="tasklist">
+        <div>Read Dr. Chen's logbook <span>Faculty Office</span></div>
+        <div>Take the knife and a water bottle <span>Kitchen</span></div>
+        <div>Take the lab mouse <span>Lab Prep</span></div>
+        <div>Take the F2 keycard <span>Library nook</span></div>
+        <div class="opt">Optional: first-aid kit <span>Restroom wall</span></div>
+      </div>
+      <p>The office is the first door on your left as you arrive, so the log is a natural first stop — and it tells you the rules before you need them.</p>
+    </section><hr class="hr">
+
+    <section id="items">
+      <h2>Items</h2><p class="lede">One knife, three bottles, one mouse</p>
+      <div class="tw"><table><thead><tr><th>Item</th><th>Where</th><th>What it does</th></tr></thead><tbody>
+        <tr><td class="k">Phone light</td><td>You start with it</td><td>Half power until Luke's event, then the full beam. <span class="key">G</span> toggles it.</td></tr>
+        <tr><td class="k">Kitchen knife</td><td>Knife block — Kitchen</td><td><strong>36 damage. Never breaks.</strong> Your only melee weapon.</td></tr>
+        <tr><td class="k">Water bottle ×3</td><td>Counter — Kitchen</td><td>Thrown: arcs, shatters, <strong>2.6-second stun + 18 damage</strong>. The splash is loud.</td></tr>
+        <tr><td class="k">Lab mouse</td><td>The one occupied cage — Lab Prep</td><td>Thrown: <strong>3.2-second stun</strong>, and every shadow on the floor goes to investigate it for 9 seconds. <span class="bad">One use.</span></td></tr>
+        <tr><td class="k">First-aid kit</td><td>Wall box — Restroom</td><td><span class="ok">+35 health</span>. The only one.</td></tr>
+        <tr><td class="k">Spare battery ×3</td><td>Lab Prep, and two in the Store</td><td><span class="lit">+55 battery</span></td></tr>
+        <tr><td class="k">F2 keycard</td><td>Under a chair — Library nook</td><td>Dr. Chen's card, stamped CONTAINMENT. Opens the stairwell once tasks are done.</td></tr>
+        <tr><td class="k">Papers</td><td>Luke's note, Dr. Chen's log, notes in the dark classrooms</td><td>All filed into the journal (<span class="key">Tab</span>)</td></tr>
+      </tbody></table></div>
+      <p>Nothing respawns. Three bottles is the whole supply, so throw them at something that matters.</p>
+    </section><hr class="hr">
+
+    <section id="rule">
+      <h2>The one rule</h2><p class="lede">Light first. Then hit.</p>
+      <div class="rule"><p class="tag">If you remember nothing else</p>
+        <p class="big">Hold the beam on it for half a second. It freezes. That is your window.</p>
+        <p>Keep the flashlight steady on a shadow for <strong>0.45 seconds</strong> and it recoils — frozen for 1.9 seconds and taking <strong>1.4× damage</strong>. Two knife swings inside that window kill most of them.</p>
+        <p>The boss is <strong>completely immune while it is not staggered.</strong> Swinging at it unlit does nothing, and the game says so: <em>"It is not afraid of you yet."</em> Light it, get 2.6 seconds, hit at 1.5× damage, back off, repeat.</p></div>
+      <p>Throwing works on anything, boss included — a bottle buys 2.6 seconds, the mouse 3.2, and neither needs the light first. Reach with the knife is a little under three metres and you must be facing the target.</p>
+      <h3>Noise</h3>
+      <p>Shadows hear you. <strong>Sprinting</strong> alerts anything within about 7 metres, <strong>tripping over clutter</strong> within 16, and a <strong>thrown object landing</strong> within 14. Alerted shadows walk to where the sound was — which is a problem when it was your footsteps and an opportunity when it was a bottle you threw down the other end of the corridor.</p>
+    </section><hr class="hr">
+
+    <section id="harm">
+      <h2>What hurts you</h2><p class="lede">The dark is what actually kills you</p>
+      <div class="tw"><table><thead><tr><th>Source</th><th class="num">Damage</th><th>Notes</th></tr></thead><tbody>
+        <tr><td class="k">Shadow contact</td><td class="num">10</td><td>F1 shadows, every 1.15 seconds while touching</td></tr>
+        <tr><td class="k">Boss charge</td><td class="num">22</td><td>Sidestep it. Backing away does not work.</td></tr>
+        <tr><td class="k">Boss contact</td><td class="num">14</td><td>Standing next to it</td></tr>
+        <tr><td class="k">Boss minions</td><td class="num">9</td><td>Spawned in fours and fives at each phase change</td></tr>
+        <tr><td class="k">Trip hazard</td><td class="num">7</td><td><strong>Only if your light is off, or you are running.</strong> Also makes noise.</td></tr>
+        <tr><td class="k">Mirror</td><td class="num">6</td><td>Restroom. Optional, and gives you nothing.</td></tr>
+        <tr><td class="k">Fridge</td><td class="num">4</td><td>Kitchen. Something lives in it.</td></tr>
+      </tbody></table></div>
+      <p>That trip line is the most useful number here. <strong>Walking with the light on makes trips harmless.</strong> Most first-run deaths are a run of 7s from sprinting blind through the overturned chairs, not from anything chasing you. There is nothing to fight on the ground floor — only things to see.</p>
+    </section><hr class="hr">
+
+    <section id="building">
+      <h2>The building</h2><p class="lede">Three floors, one route</p>
+      <p>You arrive on each floor at the end its stairwell is not, so every floor is a full-length walk. On the ground floor every side door is locked. On the first floor every door is open.</p>
+      <figure>
+        <p class="fig-title">Route through Building C</p>
+        <svg viewBox="0 0 740 300" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Diagram of three floors stacked. Ground floor: start in the classroom at the left, stairwell at the right. First floor: arrive at the right, keycard-locked stairwell at the left. Second floor: arrive at the left into the Neural Lab.">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><polygon points="0,1 10,5 0,9" fill="#918a7c"/></marker></defs>
+          <!-- F2 lab -->
+          <rect x="150" y="40" width="420" height="40" fill="#141c18" stroke="#3e6b52" stroke-width="1.5"/>
+          <text x="360" y="65" font-family="Oswald, sans-serif" font-size="13" letter-spacing="3" fill="#7fae91" text-anchor="middle">NEURAL LAB · BOSS</text>
+          <circle cx="130" cy="60" r="5" fill="#eda94a"/><line x1="130" y1="60" x2="146" y2="60" stroke="#918a7c" stroke-width="1.5" marker-end="url(#ar)"/>
+          <!-- F1 : enter right, stairs left -->
+          <rect x="150" y="134" width="420" height="12" fill="#2c2c34"/>
+          <g fill="#191920"><rect x="166" y="112" width="88" height="16"/><rect x="276" y="112" width="88" height="16"/><rect x="386" y="112" width="88" height="16"/><rect x="496" y="112" width="60" height="16"/>
+            <rect x="166" y="152" width="88" height="16"/><rect x="276" y="152" width="88" height="16"/><rect x="386" y="152" width="88" height="16"/><rect x="496" y="152" width="60" height="16"/></g>
+          <g font-family="Oswald, sans-serif" font-size="9" fill="#5d5850" text-anchor="middle">
+            <text x="210" y="106">LAB PREP</text><text x="320" y="106">KITCHEN</text><text x="430" y="106">OFFICE</text>
+            <text x="210" y="177">C-105</text><text x="320" y="177">LIBRARY</text><text x="430" y="177">WC</text><text x="526" y="106">C-103</text><text x="526" y="177">STORE</text></g>
+          <line x1="540" y1="140" x2="196" y2="140" stroke="#918a7c" stroke-width="1.5" marker-end="url(#ar)"/>
+          <circle cx="560" cy="140" r="5" fill="#eda94a"/>
+          <rect x="122" y="130" width="22" height="20" fill="#2a1216" stroke="#7d1218"/><text x="133" y="145" font-family="Oswald, sans-serif" font-size="11" fill="#e8555c" text-anchor="middle">↑</text>
+          <rect x="112" y="118" width="8" height="8" fill="#e0353b"/><text x="106" y="126" font-family="Oswald, sans-serif" font-size="9" fill="#918a7c" text-anchor="end">reader</text>
+          <!-- G : classroom left, stairs right -->
+          <rect x="150" y="214" width="420" height="12" fill="#2c2c34"/>
+          <g fill="#191920"><rect x="184" y="192" width="88" height="16"/><rect x="294" y="192" width="88" height="16"/><rect x="404" y="192" width="88" height="16"/>
+            <rect x="184" y="232" width="88" height="16"/><rect x="294" y="232" width="88" height="16"/><rect x="404" y="232" width="88" height="16"/></g>
+          <text x="338" y="186" font-family="Oswald, sans-serif" font-size="9" fill="#5d5850" text-anchor="middle" letter-spacing="1.5">ALL DOORS LOCKED</text>
+          <rect x="108" y="202" width="52" height="36" fill="#141a20" stroke="#3a4450"/><text x="134" y="224" font-family="Oswald, sans-serif" font-size="10" letter-spacing="1" fill="#8fa3b8" text-anchor="middle">CLASS</text>
+          <line x1="166" y1="220" x2="528" y2="220" stroke="#918a7c" stroke-width="1.5" marker-end="url(#ar)"/>
+          <rect x="548" y="210" width="22" height="20" fill="#2a1216" stroke="#7d1218"/><text x="559" y="225" font-family="Oswald, sans-serif" font-size="11" fill="#e8555c" text-anchor="middle">↑</text>
+          <!-- connectors -->
+          <g stroke="#7d1218" stroke-width="1.5" stroke-dasharray="3 3" fill="none"><path d="M559 210 V176 H600 V140"/><path d="M133 130 V96 H98 V60"/></g>
+          <g fill="#7d1218"><polygon points="596,142 604,142 600,134"/><polygon points="94,62 102,62 98,54"/></g>
+          <!-- labels -->
+          <g font-family="Oswald, sans-serif" font-size="12" fill="#ded8cd"><text x="600" y="46">F2</text><text x="600" y="126">F1</text><text x="600" y="206">G</text></g>
+          <g font-family="Oswald, sans-serif" font-size="10.5" fill="#5d5850"><text x="600" y="62">Final truth</text><text x="600" y="142">Confusion</text><text x="600" y="222">Beginning</text></g>
+          <g font-family="Oswald, sans-serif" font-size="10.5" fill="#5d5850" letter-spacing="1.6">
+            <circle cx="14" cy="282" r="5" fill="#eda94a"/><text x="26" y="286">YOU ARRIVE</text>
+            <rect x="140" y="272" width="20" height="19" fill="#2a1216" stroke="#7d1218"/><text x="167" y="286">STAIRWELL UP</text></g>
+        </svg>
+        <figcaption><b>The F1 stairwell is at the far end from where you arrive, behind a keycard reader.</b> The office is the first door on the left, the restroom first on the right; the kitchen and library are in the middle; lab prep and the dark classrooms are nearest the locked stairs.</figcaption>
+      </figure>
+      <div class="tw"><table><thead><tr><th>Floor</th><th class="num">Shadows</th><th>What is there</th></tr></thead><tbody>
+        <tr><td class="k">G</td><td class="num">—</td><td>The classroom, a long corridor of locked doors and drag marks. No combat — silhouettes cross ahead of you, lightning through the windows.</td></tr>
+        <tr><td class="k">F1</td><td class="num">3</td><td>Office, restroom, kitchen, library, lab prep, store, two dark classrooms. Doorway peekers, whispers behind you, everything open.</td></tr>
+        <tr><td class="k">F2</td><td class="num">1 + minions</td><td>The Neural Lab. Server racks, one working light, sparking panels, and Luke in the middle.</td></tr>
+      </tbody></table></div>
+      <p>F1 shadows have 52 health and notice you from about seventeen metres — <strong>on their own floor only</strong>. A staircase is a hard reset on being chased.</p>
+    </section><hr class="hr">
+
+    <section id="boss">
+      <h2>The boss</h2><p class="lede">It tells you before it charges</p>
+      <p><strong>340 health.</strong> It changes phase at two thirds and one third — each change spawns minions (four, then five) and makes it faster. Every charge is <strong>telegraphed</strong>: the lights dip, a rising tone, three quarters of a second, then it comes. <strong>Step sideways on the tone</strong>, never backwards. Get more than about thirteen metres away and it teleports next to you, so running is not an option.</p>
+      <p>Go up with the knife, the mouse, at least one bottle and a full battery. The rhythm is four repetitions of the same loop: beam on it, close while it is frozen, two swings, retreat before it recovers. Use the mouse when the minions arrive — everything on the floor walks away from you for nine seconds.</p>
+      <div class="log"><b>Night Watch</b>DO NOT INITIATE VERBAL CONTACT. DO NOT CALL THEIR NAME.</div>
+    </section><hr class="hr">
+
+    <section id="opening">
+      <h2>The opening</h2><p class="lede">The part everyone gets stuck on</p>
+      <p>The first two minutes are scripted and will not continue until you have done each beat. If nothing seems to be happening, it is waiting on one of these.</p>
+      <ol class="steps">
+        <li><p>Your eyes flicker. Just wait — the phone on your desk will start buzzing.</p></li>
+        <li><p>Look at the phone and press <span class="key">E</span>. 03:33 AM, seven missed calls from Luke, and a campus alert: Building C is under lockdown.</p></li>
+        <li><p>The note is under where the phone was. <span class="key">E</span> to read it, <span class="key">E</span> again to put it down. Luke went to F1.</p></li>
+        <li><p>Wait. Someone is running in the corridor. Watch the door.</p></li>
+        <li><p>Luke comes past the doorway, grabs the frame, screams your name, and is dragged back the way he came. The lights die with him. Now you can move.</p></li>
+        <li><p><strong>Leave the classroom</strong> — the door is behind where you were facing — and follow the drag marks down the corridor to the stairwell at the far end.</p></li>
+        <li><p>From here the building is open. Read Dr. Chen's log first; it is the first door on your left upstairs.</p></li>
+      </ol>
+    </section><hr class="hr">
+
+    <section id="tips">
+      <h2>Tips</h2><p class="lede">Seven things that change the run</p>
+      <ul class="tips">
+        <li><strong>Walk with the light on.</strong> Trips become harmless and you can stagger things. This alone is most of the difficulty.</li>
+        <li><strong>Find a working light and stand under it.</strong> Battery and health both come back. Remember where the good tubes are.</li>
+        <li><strong>Do not sprint on F1 unless something is already chasing you.</strong> Sprinting is what tells them where you are.</li>
+        <li><strong>Never swing at something that is not staggered.</strong> Light first, every time — on the boss it is not optional.</li>
+        <li><strong>Read Dr. Chen's log before anything else.</strong> It is nearest, and it gives you the rules.</li>
+        <li><strong>Save the mouse for the boss.</strong> Nine seconds of everything walking away from you is worth more up there than anywhere below.</li>
+        <li><strong>A thrown bottle is a decoy first and a weapon second.</strong> Throw one down the far end of the corridor and the room you want empties out.</li>
+      </ul>
+    </section><hr class="hr">
+
+    <section id="meaning">
+      <h2>What it means</h2><p class="lede">There is no ending where you get out</p>
+      <p>Dr. Chen's log tells you what happened before you woke up. The model in the F2 rack stopped answering prompts and started answering <em>names</em>. Something walked out of the containment cage and was not on any camera. The lockdown was initiated and the lockdown failed. By three in the morning it was calling people by name through the vents, and it knew hers.</p>
+      <p>Her rules are the game's rules: it only respects light; do not answer anything that uses a voice you love; do not say a name out loud on F2. And the fourth one — <em>if you are reading this, you have done this before.</em></p>
+      <div class="log"><b>Unknown number</b>it copied your footsteps<br>stop reading and turn around<br><span style="color:#e8555c">we already did this.</span></div>
+      <details class="spoiler"><summary>The ending — do not open this before you have finished it</summary>
+        <div class="spoiler-body">
+          <p>You win the fight. You free him. You hold onto him — and he holds onto you the way he held onto that door frame. Then he smiles, and keeps smiling, and the screen goes out.</p>
+          <p>You wake at your desk with the lights on. It is 03:33. Luke is in his seat and waves. The student beside you turns and smirks. Your head is pulled toward the board against your will, and <strong>WAKE UP</strong> bleeds down the chalk where <em>AI Ethics — Day 47</em> used to be.</p>
+          <p>The loop counter goes up by one, and the run resets. That is the whole design: winning is not escape, it is a higher number. The rule about not saying his name is the only thing in the building that treats you as though there might be a way out.</p>
+        </div></details>
+    </section>
+  </main>
+  <footer class="foot"><span>Wake Up · Wenzhou-Kean University · Building C</span><span>Loop 1 of &infin;</span></footer>
+</div>
+
+</body>
+</html>
